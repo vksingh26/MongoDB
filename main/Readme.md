@@ -1,0 +1,1 @@
+Starting MongoDB from scratch.
