@@ -6,6 +6,4 @@ Starting MongoDB from scratch.
 3. Open cmd prompt and run mongod.
 
 
-
-
 <!-- Syntax for writting mongodb will change for different drivers like nodejs, python etc  -->
