@@ -5,6 +5,8 @@ console.log('Introduction to MongoDB!');
 //run mongo in cmd prompt, once you run the mongo command it will connect with the mongo server.
 //For checking db just run command like "show dbs", it will show the list of dbs like local, config and admin which
 //is use to store metadata
+//Behind the scene mongodb store data in binary json(BSON) by using mongodriver for which we dont have to worry about, Mongodb will take care of it. We have to store data in json format.
+//Mongo will store in BSON because of efficient storage and it will be faster and additional it will support additional type
 
 //1. Now we can create a collection on the fly by usin the below command
     //a. use "name of the db without quotes"
