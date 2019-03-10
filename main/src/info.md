@@ -126,3 +126,12 @@ console.log('Introduction to MongoDB!');
 //After changing the port from 27017 which is a default one to something else, in that we when we run mongo in other 
 //cmd prompt we need to set/update the port there too by using below command
 //execute mongo --port 27019 in cmd prompt
+
+//find() method in mongodb doesnot return all the data by default in the shell/terminal, it just return the 20 record.
+//after 20 record it return the cursor object(its nothing but hold all the data), so to get the remaining data we need to run "it" in terminal/shell which return the remaining data.
+//to handle this, instead of "it" we can use like "find().toArray()" method to find all the record in one shot or we can use "find().foreach()" method to find all the object.
+
+//Difference between findOne and find. findOne will return only one document and pretty() method doesnot work on it as it just return one data, where as find will return a cursor object which have multiple data and pretty() method work with find().
+
+//Projection, projection in mongo is used to find set of certain/particular data from the db. Like if we want to just find the name from our document, in that case we can just pass key value like name:1, which will return all name from the set of data, but if we want to exclude some the data like _id or something else in that case too we need to pass key value like _id: 0 which will exclude all the _id and just return the name from the data. Please check app.js for example.
+//check mongoDB_projection_example.png for projection reference.  

@@ -50,9 +50,16 @@ client.connect(function (err) {
     //         });
     // });
 
-    replaceOneRecord(db, () => {
-        console.log('Entering into replace one record method!');
-        findDocuments(db, function () {
+    // replaceOneRecord(db, () => {
+    //     console.log('Entering into replace one record method!');
+    //     findDocuments(db, function () {
+    //         client.close();
+    //     });
+    // });
+
+    projectionOfData(db, () => {
+        console.log('Entering into projection method!');
+        projectionOfData(db, function () {
             client.close();
         });
     });
@@ -167,5 +174,14 @@ const replaceOneRecord = (db, callback) => {
     {Name: 'Krijesh', age: 32, role: 'Developer',}, (err, docs) => {
         console.log('Replace single record!');
         callback(docs);
+    });
+}
+
+// [EXAMPLE OF PROJECTION IN MONGODB]
+const projectionOfData = (db, callback) => {
+    const collection = db.collection('documents');
+    //projection of name
+    collection.find({}, {name: 1,  _id: 0 }, (err, docs) => {
+        callback(docs)
     });
 }
