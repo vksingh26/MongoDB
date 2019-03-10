@@ -42,12 +42,19 @@ client.connect(function (err) {
     //     });
     // });
 
-    updateManyRecord(db, () => {
-        console.log('Entering into update many record!');
-        const collection = db.collection('documents');
+    // updateManyRecord(db, () => {
+    //     console.log('Entering into update many record!');
+    //     const collection = db.collection('documents');
+    //     findDocuments(db, function () {
+    //             client.close();
+    //         });
+    // });
+
+    replaceOneRecord(db, () => {
+        console.log('Entering into replace one record method!');
         findDocuments(db, function () {
-                client.close();
-            });
+            client.close();
+        });
     });
 });
 
@@ -92,7 +99,7 @@ const findDocuments = function (db, callback) {
     // Get the documents collection
     const collection = db.collection('documents');
     // Find some documents
-    collection.find({age: {$gt: 29}}).toArray(function (err, docs) {
+    collection.find().toArray(function (err, docs) {
         assert.equal(err, null);
         console.log("Found the following records");
         console.log(docs);
@@ -127,7 +134,14 @@ const deleteManyDocument = function (db, callback) {
 const updateOneRecord = (db, callback) => {
     const collection = db.collection('documents');
     //updateone method
-    collection.updateOne({role: 'QA', name: 'Mahendra'}, {$set: {role: 'QA Lead'}}, (err, docs) => {
+    collection.updateOne({
+                role: 'QA Lead 3',
+                name: 'Mahendra'
+            }, {
+                $set: {
+                    role: 'QA Lead'
+                }
+            }, (err, docs) => {
         console.log('Update single record!');
         callback(docs);
     });
@@ -141,7 +155,17 @@ const updateManyRecord = (db, callback) => {
             role: 'QA Lead 3'
         }
     }, (err, docs) => {
-        console.log('Update single record!');
+        console.log('Update many record!');
+        callback(docs);
+    });
+}
+
+const replaceOneRecord = (db, callback) => {
+    const collection = db.collection('documents');
+    //replace one method
+    collection.update({role: 'QA Lead 1'},
+    {Name: 'Krijesh', age: 32, role: 'Developer',}, (err, docs) => {
+        console.log('Replace single record!');
         callback(docs);
     });
 }
