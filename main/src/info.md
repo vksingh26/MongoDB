@@ -7,13 +7,18 @@ console.log('Introduction to MongoDB!');
 //is use to store metadata
 //Behind the scene mongodb store data in binary json(BSON) by using mongodriver for which we dont have to worry about, Mongodb will take care of it. We have to store data in json format.
 //Mongo will store in BSON because of efficient storage and it will be faster and additional it will support additional type
+<!-- Important Info -->
 
-//1. Now we can create a collection on the fly by usin the below command
-    //a. use "name of the db without quotes"
-//2. we can insert the data too on the fly using the below command
-    //b. db.collectionname.insertone({}).
-//3. After inserting we can see the inserted record too by using the below command
-    //c. db.cust.findOne()
+1. Now we can create a collection on the fly by usin the below command
+    a. use "name of the db without quotes"
+2. we can insert the data too on the fly using the below command
+    b. db.collectionname.insertone({}).
+3. After inserting we can see the inserted record too by using the below command
+    c. db.cust.findOne()
+4. We can drop the db too by using the below command:
+    d. db.dropDatabase()
+5. We can delete data from table or database using the below query
+    e. db.dbname.deleteMany({})
 
 //below operations we are doing it in terminal/shell
 
@@ -134,4 +139,14 @@ console.log('Introduction to MongoDB!');
 //Difference between findOne and find. findOne will return only one document and pretty() method doesnot work on it as it just return one data, where as find will return a cursor object which have multiple data and pretty() method work with find().
 
 //Projection, projection in mongo is used to find set of certain/particular data from the db. Like if we want to just find the name from our document, in that case we can just pass key value like name:1, which will return all name from the set of data, but if we want to exclude some the data like _id or something else in that case too we need to pass key value like _id: 0 which will exclude all the _id and just return the name from the data. Please check app.js for example.
-//check mongoDB_projection_example.png for projection reference.  
+//check mongoDB_projection_example.png for projection reference. 
+
+//DATA TYPES:
+
+1. Text
+2. Boolean
+3. Number (Integer: int 32 (eg: 55),  NumberLong: int 64 (eg: 1000000000), Number Decimal: eg:12.99)
+4. ObjectId
+5. ISO date 
+6. Embedded document
+7. Array
