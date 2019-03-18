@@ -150,3 +150,15 @@ console.log('Introduction to MongoDB!');
 5. ISO date 
 6. Embedded document
 7. Array
+
+//LOOKUP
+
+* To merge the documents in mongodb we can use lookup.
+* Below is the cmd to do the same
+* db.documentname.aggregate() which will have lookup, so lookup will accept documents and four important things like
+* db.documentName.aggregate([{$lookup: {from: "collectionname", localfield:"collectionname", foreignField: "_id", as: ""}}])
+
+* from is the name of the collection where your related document is living.
+* where could the reference for the collection could found.
+* which field we are relating to your target collection. 
+* as is alias under which it will be merged.
