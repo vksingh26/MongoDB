@@ -37,9 +37,22 @@ client.connect(function () {
     // orAndNorCompare(db, ()=>{
     //     client.close();
     // });
-    andOperator(db, ()=>{
+    // andOperator(db, ()=>{
+    //     client.close();
+    // })
+
+    // updateOneRecord(db, () => {
+    //     console.log('Entering into update one record!');
+    //     getUsersRecord(db, function () {
+    //         client.close();
+    //     });
+    // })
+    // elementOperatorExist(db, () => {
+    //     client.close();
+    // });
+    elementOperatorType(db, () => {
         client.close();
-    })
+    });
 });
 
 const creatUser = (db, callback) => {
@@ -331,6 +344,43 @@ const andOperator = (db, callback) => {
     const collection = db.collection("Users");
     console.log(`Entering into and operator method!`);
     collection.find({ $and: [{name: 'Ervin Howell'}, {username: 'Antonette'}]}).toArray((err, docs) => {
+        console.log(`Found the following records!`);
+        console.log(docs);
+        callback(docs);
+    })
+}
+
+const updateOneRecord = (db, callback) => {
+    const collection = db.collection('Users');
+    //updateone method
+    collection.updateOne({
+        id: 1
+    }, {
+        $set: {
+            name: 'Vikash Kumar Singh',
+            age: 30
+        }
+    }, (err, docs) => {
+        console.log('Update single record!');
+        console.log(docs);
+        callback(docs);
+    });
+}
+
+const elementOperatorExist = (db, callback) =>{
+    const collection = db.collection("Users");
+    console.log(`Entering into elementOperatorExist method!`);
+    collection.find({age: { $exists: false }}).toArray((err, docs) => {
+        console.log(`Found the following records!`);
+        console.log(docs);
+        callback(docs);
+    });
+}
+
+const elementOperatorType = (db, callback) => {
+    const collection = db.collection("Users");
+    console.log('Entering into elementOperatorType method!');
+    collection.find({age: {$type: "number"}}).toArray(function(err, docs){
         console.log(`Found the following records!`);
         console.log(docs);
         callback(docs);
