@@ -20,6 +20,9 @@ console.log('Introduction to MongoDB!');
 5. We can delete data from table or database using the below query
     e. db.dbname.deleteMany({})
 
+
+
+
 //below operations we are doing it in terminal/shell
 
 // > db.cust.insertOne({
@@ -162,3 +165,9 @@ console.log('Introduction to MongoDB!');
 * where could the reference for the collection could found.
 * which field we are relating to your target collection. 
 * as is alias under which it will be merged.
+
+
+//in and nin
+
+* "in" is the comparison operator in mongo db where need to pass an array and will return the data which is equal to the array element. like check mongo-app.js inAndNinCompare methods.
+* "nin" is the comparison operator in mongo db where need to pass an array and will return the data which is not equal to the array element. like check mongo-app.js inAndNinCompare methods.

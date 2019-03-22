@@ -15,7 +15,9 @@ client.connect(function (err) {
     assert.equal(null, err);
     console.log("Connected successfully to server");
     const db = client.db(dbName);
-
+    // db.dropDatabase(function () {
+    //     client.close();
+    // });
     // insertDocuments(db, function () {
     //     findDocuments(db, function () {
     //         client.close();
